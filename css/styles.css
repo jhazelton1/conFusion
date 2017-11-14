@@ -38,3 +38,7 @@ body {
 .navbar-inverse {
   background-color: #512DA8
 }
+
+#corporateLeadership h2 {
+  margin-top: 25px;
+}
