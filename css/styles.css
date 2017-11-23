@@ -53,6 +53,7 @@ body {
 .carousel-item {
   height: 300px;
 }
+
 .carousel-item img {
   position: absolute;
   top: 0;
@@ -60,6 +61,16 @@ body {
   min-height: 300px;
 }
 
+.date-time {
+  height: 45px;
+}
+
 #corporateLeadership h2 {
   margin-top: 25px;
+}
+
+#carouselButtons {
+  right: 0px;
+  position: absolute;
+  bottom: 0px;
 }
