@@ -113,26 +113,26 @@
                 </div>
               </div>
               <div class="row form-group">
-                  <label for="section" class="col-md-2"><strong>Section</strong></label>
-                  <div class="btn-group col-md-6">
-                    <label for="smoking" class="btn btn-success">
-                      <input type="radio" name="options" id="smoking" autocomplete="off" checked>Smoking
+                <label for="section" class="col-md-2"><strong>Section</strong></label>
+                <div class="btn-group col-md-6">
+                  <label for="smoking" class="btn btn-success">
+                      <input type="radio" name="section" id="smoking" autocomplete="off" checked>Non-Smoking
                     </label>
-                    <label for="nonsmoking" class="btn btn-danger">
-                      <input type="radio" name="options" id="nonsmoking" autocomplete="off">Non-Smoking
+                  <label for="nonsmoking" class="btn btn-danger">
+                      <input type="radio" name="section" id="nonsmoking" autocomplete="off">Smoking
                     </label>
-                  </div>
+                </div>
               </div>
               <div class="row form-group">
-                  <label for="date" class="col-md-2"><strong>Date and Time</strong></label>
-                  <div class="input-group col-xs-4 col-sm-4 date-time">
-                    <span class="input-group-addon" id="calendar-addon"><span class="fa fa-calendar"></span></span>
-                    <input type="text" class="" placeholder="Date" aria-describedby="calendar-addon">
-                  </div>
-                  <div class="input-group col-xs-4 col-sm-4 date-time">
-                    <span class="input-group-addon" id="clock-addon"><span class="fa fa-clock-o"></span></span>
-                    <input type="text" class="" placeholder="Time" aria-describedby="clock-addon">
-                  </div>
+                <label for="date" class="col-md-2"><strong>Date and Time</strong></label>
+                <div class="input-group col-xs-4 col-sm-4 date-time">
+                  <span class="input-group-addon" id="calendar-addon"><span class="fa fa-calendar"></span></span>
+                  <input type="text" class="" placeholder="Date" aria-describedby="calendar-addon">
+                </div>
+                <div class="input-group col-xs-4 col-sm-4 date-time">
+                  <span class="input-group-addon" id="clock-addon"><span class="fa fa-clock-o"></span></span>
+                  <input type="text" class="" placeholder="Time" aria-describedby="clock-addon">
+                </div>
               </div>
               <div class="row form-group d-flex justify-content-center">
                 <div class="btn-group">
@@ -207,15 +207,9 @@
           <a href="#mycarousel" class="carousel-control-next" role="button" data-slide="next">
             <span class="carousel-control-next-icon"></span></a>
 
-          <div class="btn-group" id="carouselButtons">
-            <button class="btn btn-danger btn-sm" id="carousel-pause">
-              <span class="fa fa-pause"></span>
-            </button>
-            <button class="btn btn-danger btn-sm" id="carousel-play">
-              <span class="fa fa-play"></span>
-            </button>
-          </div>
-
+          <button class="btn btn-danger btn-sm" id="carousel-button">
+              <span id="carousel-button-icon" class="fa fa-pause"></span>
+          </button>
         </div>
       </div>
     </div>
@@ -363,7 +357,7 @@
   <script src="node_modules/tether/dist/js/tether.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-  <script>
+  <!-- <script>
     $(document).ready(function() {
       $("#mycarousel").carousel({ interval: 2000});
       $("#carousel-pause").click(function() {
@@ -373,8 +367,35 @@
         $("#mycarousel").carousel('cycle');
       });
     });
+  </script> -->
+
+  <script>
+    $("#carousel-button").click(function() {
+      if ($("#carousel-button").children("span").hasClass('fa-pause')) {
+        $("#mycarousel").carousel('pause');
+        $("#carousel-button").children("span").removeClass('fa-pause');
+        $("#carousel-button").children("span").addClass('fa-play')
+      } else if ($("#carousel-button").children("span").hasClass('fa-play')) {
+        $("#mycarousel").carousel('cycle');
+        $("#carousel-button").children("span").removeClass('fa-play');
+        $("#carousel-button").children("span").addClass('fa-pause');
+      }
+    });
   </script>
 
+  <!-- <script>
+    $("#carousel-button").click(function() {
+      if ($("#carousel-button").children("span").hasClass('fa-pause')) {
+        $("#mycarousel").carousel('pause');
+        $("#carousel-button").children("span").removeClass('fa-pause');
+        $("#carousel-button").children("span").addClass('fa-play');
+      } else if ($("#carousel-button").children("span").hasClass('fa-play')) {
+        $("#mycarousel").carousel('cycle');
+        $("#carousel-button").children("span").removeClass('fa-play');
+        $("#carousel-button").children("span").addClass('fa-pause');
+      }
+    });
+  </script> -->
   <!-- <script type="text/javascript">
     $('#reserveBtn').click(function() {
       $('html, body').animate({
